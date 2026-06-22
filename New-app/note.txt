@@ -1,0 +1,30 @@
+TÂCHES CLASSÉES DU PLUS DIFFICILE AU PLUS FACILE
+================================================
+
+⭐⭐⭐⭐⭐ TRÈS DIFFICILE
+----------
+* Intégrer SUPABASE pour l'enregistrement et la récupération des personnes (nom, prénom, surnom)
+* Implémenter un système de suivi d'état (qui a parlé / qui reste à interroger)
+* Logique de "lancer le dé" = choix aléatoire d'une personne parmi les présentes (exclure les déjà parlés)
+
+⭐⭐⭐⭐ DIFFICILE
+----------
+* Pouvoir choisir dans les personnes enregistrées qui participe à la réunion (interface + logique)
+* Système qui continue jusqu'à ce que tout le monde ait parlé (gestion des statuts et boucle)
+
+⭐⭐⭐ MOYEN
+----------
+* Pouvoir démarrer la réunion (transition d'écran / changement d'état)
+* Page de fin : récupération et affichage d'un mot aléatoire (?)
+
+⭐⭐ FACILE
+----------
+* Architecture : HTML, JS, CSS (structure de base)
+* Hébergement sur GITHUB
+* Publication sur GITHUB Pages
+
+⭐ TRÈS FACILE
+----------
+* Ajout d'un lien HREF vers https://miro.com/app/board/uXjVLMN6dWU=/
+
+
