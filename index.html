@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire de Participants</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gestionnaire de Participants</h1>
+            <p class="subtitle">Gestion des tours de parole</p>
+        </header>
+
+        <section class="connection-section">
+            <div class="form-group">
+                <label for="supabaseUrl">URL Supabase:</label>
+                <input type="text" id="supabaseUrl" placeholder="https://xxx.supabase.co" value="https://wyfewunmiwxqqagpwvfb.supabase.co">
+            </div>
+            <div class="form-group">
+                <label for="supabaseKey">Clé API Supabase:</label>
+                <input type="password" id="supabaseKey" placeholder="Votre clé API (Settings > API > anon public)" value="sb_publishable_hBx0MWxQJTpqtX3vwA1QaQ_IeXElP8u">
+            </div>
+            <button id="connectBtn" class="btn btn-primary">Connexion Supabase</button>
+            <span id="connectionStatus" class="status-badge"></span>
+        </section>
+
+        <section class="participants-section">
+            <h2>Participants</h2>
+            
+            <div class="add-participant">
+                <input type="text" id="participantName" placeholder="Nom du participant">
+                <button id="addBtn" class="btn btn-success">Ajouter</button>
+            </div>
+            <div class="filter-section">
+                <label>
+                    <input type="checkbox" id="showOnlyActive"> 
+                    Afficher seulement les actifs
+                </label>
+            </div>
+
+            <div id="participantsList" class="participants-list">
+                <p class="empty-state">Aucun participant pour le moment</p>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-label">Total:</span>
+                    <span id="totalParticipants" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Parlés:</span>
+                    <span id="spokedCount" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Restants:</span>
+                    <span id="remainingCount" class="stat-value">0</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="draw-section">
+            <h2>Tirage Aléatoire</h2>
+            
+            <div id="currentSpeaker" class="current-speaker">
+                <p>Aucun participant sélectionné</p>
+            </div>
+
+            <div class="draw-buttons">
+                <button id="drawBtn" class="btn btn-primary btn-large">Tirer un Participant</button>
+                <button id="markAsSpokenBtn" class="btn btn-success">Marqué comme Parlé</button>
+                <button id="resetBtn" class="btn btn-warning">Réinitialiser Session</button>
+            </div>
+
+            <div id="drawHistory" class="draw-history">
+                <h3>Historique</h3>
+                <ul id="historyList"></ul>
+            </div>
+        </section>
+
+        <section class="session-section">
+            <h2>Sessions</h2>
+            <div class="session-buttons">
+                <button id="exportBtn" class="btn btn-info">Exporter Données</button>
+                <button id="importBtn" class="btn btn-info">Importer Données</button>
+                <input type="file" id="importFile" accept=".json" style="display:none;">
+                <button id="clearAllBtn" class="btn btn-danger">Effacer Tout</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
